@@ -6,9 +6,9 @@
 
 ## What we covered last time
 - [Operators](http://sutherland-hdl.com/pdfs/verilog_2001_ref_guide.pdf#page=33)
-  - ```verilog w = {m, n}``` is concatenating ```m``` and ```n``` into ```w```
-  - ```verilog {m, n} = w``` is splitting ```w``` into ```m``` and ```n```
-  - ```verilog {N{m}}``` is duplicating ```m``` ```N``` times. ```N``` must be a constant.
+  - ```w = {m, n}``` is concatenating ```m``` and ```n``` into ```w```
+  - ```{m, n} = w``` is splitting ```w``` into ```m``` and ```n```
+  - ```{N{m}}``` is duplicating ```m``` ```N``` times. ```N``` must be a constant.
 - [Module Definition](http://sutherland-hdl.com/pdfs/verilog_2001_ref_guide.pdf#page=12)
 - [Module Instances](http://sutherland-hdl.com/pdfs/verilog_2001_ref_guide.pdf#page=21)
 - [Primitive Instances](http://sutherland-hdl.com/pdfs/verilog_2001_ref_guide.pdf#page=23)

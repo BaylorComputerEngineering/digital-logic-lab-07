@@ -44,7 +44,7 @@ Please read the [coding standard](coding_standard.md).
 - **parameters**
   - REG_SIZE : specify the counter register size
   - DELAY_SIZE : specify the delay register size
-  - CMP_SIZE: default to a desired SIZE. If the input is less than the CMP\_SIZE, append that number with 0s. ```verilog {{CMP_SIZE{1'b0}}, a}```
+  - CMP_SIZE: default to a desired size that is supported by your comparator. If the input is less than the CMP\_SIZE, append with 0s. For example, ```{{CMP_SIZE{1'b0}}, a}```
 - You need to have 3 test cases.
   - **case 1**: max is a positive number and min is a negative number
   - **case 2**: both max and min are positive number
