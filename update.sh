@@ -1,6 +1,6 @@
 #! /bin/bash
 
-UPSTREAM_REPO=
+UPSTREAM_REPO=https://github.com/BaylorComputerEngineering/digital-logic-lab-07.git
 if ! [ -z "${UPSTREAM_REPO}" ]; then
     git remote add update ${UPSTREAM_REPO} 2>/dev/null
     git stash
