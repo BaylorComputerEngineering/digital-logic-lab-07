@@ -13,16 +13,17 @@ Please read the [coding standard](coding_standard.md).
 
 ### 1. What is the difference in behavior between latch and flip-flop based on the modules and test cases we have developed in lab? (2 pts)
 
-### 2. Implement and test a module that accepts a N-bit number as input (N is up to 64), outputs a 1-bit number that indicates true/false and the N-bit number's absolute value. (2 pts)
-- Name this simualtion set as "magnitude\_test"
-- You should use comparator from lab06 assignment in this module.
-- Hint: the two inputs to the comparator should be like this:
-  ```verilog
-  {(64-N){1'b0}, a}
-  ```
-  This way, you can make sure your inputs are 64-bit.
+### 2. Implement a test a N-bit magnitude extractor. (2 pts)
+- Name this simulation set as "magnitude\_test"
+- **Input**
+  - N-bit number in 2's complement format
+- **Output**
+  - N-bit magnitude or absolute value of the input
+  - 1 bit sign number, true for positive, false for negative
+- You can use either N-bit adder subtractor we have built so far, or built in verilog expressions.
+- Hint: two lines
 
-### 3. Implement and test a N-bit counter with configurable count limit (3 pts)
+### 3. Implement and test a N-bit (up to 64-bit) counter with configurable count limit (3 pts)
 - Name this simulation set as "custom\_counter\_test"
 - Instead of keep incrementing forever, this counter will automatically reset when the __count__ reaches __limit__
 - Use the comparator we built from last lab for comparison test
@@ -37,9 +38,9 @@ Please read the [coding standard](coding_standard.md).
   - SIZE: specify the size of counter register
 - Draw a block diagram for this limited counter
 
-### 4. Implement and test a N-bit delay counter (3 pts)
+### 4. Implement and test a N-bit (up to 64-bit) delay counter (3 pts)
 - Name this simulation set as "delay\_counter\_test".
-- Instead of increment or decrement every cycle, this module increment or decrement every N cycles.
+- Instead of increment or decrement every cycle, this module increment every N cycles.
 - **Inputs**:
   - clk, reset,
   - default: N-bit input, reset will set the counter to ```default```
