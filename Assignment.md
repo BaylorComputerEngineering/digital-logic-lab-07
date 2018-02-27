@@ -7,50 +7,38 @@ This goal of this assignment is to help you get more familier with registers and
 Please read the [coding standard](coding_standard.md).
 
 ## Problems
-- Name the project as "Lab07_assignment".
+- Name the project as "Lab07".
 - For all the simulations, you should use a oscillator with 10ns period (5ns hi, 5ns lo).
 - Block diagrams can be embedded in this doc.
 
 ### 1. What is the difference in behavior between latch and flip-flop based on the modules and test cases we have developed in lab? (2 pts)
 
-### 2. Implement a test a N-bit magnitude extractor. (2 pts)
-- Name this simulation set as "magnitude\_test"
-- **Input**
-  - N-bit number in 2's complement format
-- **Output**
-  - N-bit magnitude or absolute value of the input
-  - 1 bit sign number, true for positive, false for negative
-- You can use either N-bit adder subtractor we have built so far, or built in verilog expressions.
-- Hint: two lines
+### 2. Implement a test a 1:4 demux. (2 pts)
+- Name this simulation set as "demux4\_test"
+  ```verilog
+  module demux4(input [1:0] sel,
+                output out0, out1, out2, out3);
+  
+  endmodule
+  ```
 
-### 3. Implement and test a N-bit (up to 64-bit) counter with configurable count limit (3 pts)
-- Name this simulation set as "custom\_counter\_test"
-- Instead of keep incrementing forever, this counter will automatically reset when the __count__ reaches __limit__
-- Use the comparator we built from last lab for comparison test
-- **Inputs**
-  - clk, reset
-  - default: N-bit input, reset will set the counter to ```default```
-  - limit : should be the same size as the counter register. When counter reaches limit, it will reset to ```default``` value.
-- **Outputs**
-  - count: N-bit output, current counter value
-  - tick: 1-bit, high when counter reaches limit, otherwise stays low.
-- **Parameters**
-  - SIZE: specify the size of counter register
-- Draw a block diagram for this limited counter
-
-### 4. Implement and test a N-bit (up to 64-bit) delay counter (3 pts)
-- Name this simulation set as "delay\_counter\_test".
-- Instead of increment or decrement every cycle, this module increment every N cycles.
-- **Inputs**:
-  - clk, reset,
-  - default: N-bit input, reset will set the counter to ```default```
-  - limit : should be the same size as the counter register. When counter reaches limit, it will reset to ```default``` value.
-  - delay: specify number of cycles of delay
-- **Output**:
-  - count: current counter value
-  - tick: 1-bit, high when counter reaches limit, otherwise stays low.
-- **Parameters**:
-  - REG_SIZE: counter register size
-  - DELAY_SIZE: delay register size
-- Draw a block diagram for this counter.
-- Hint: You can use the counter from problem 3 for delay.
+### 3. Implement and test a bank of 4 read/write addressable N-bit registers. (6pts)
+- Specification:
+  - Name this simulation set as "register\_bank4\_test"
+  - You should use mux, demux and register modules we build so far to implement this module
+    ```verilog
+    module register_bank4 #(parameter N=8)
+       (input rd_en, wr_en,
+        input [1:0] rd_addr, wr_addr,
+        input [N-1:0] data_in,
+        output [N-1:0] data_out);
+        
+    endmodule
+        
+    ```
+  - Behavior:
+    - If ```rd_en = 1'b0```, ```data_out = {N{1'bz}}```, otherwise, ```data_out``` should have the content of the register specified by ```rd_addr```
+    - If ```wr_en = 1'b0```, no write will go through.
+    - Write has no effect on ```data_out```
+- Draw a block diagram for this module using mux, demux, and register blocks. (3pts)
+- Implement and test this module (3pts)

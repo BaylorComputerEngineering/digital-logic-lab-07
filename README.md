@@ -45,6 +45,6 @@
 
 - Implement and test a N-bit register
 
-- Implement and test a counter with a register
+- Example: Implement and test a counter with a register
 
   ![Simple Counter](pics/counter.png)
