@@ -22,24 +22,29 @@
 
 - Implement and test a nand gate SR latch
   
-  ![SR Latch](pics/sr_latch.png)
+  <img src="pics/sr_latch.png" alt="SR Latch" width="400"/>
+  <!-- ![SR Latch](pics/sr_latch.png) -->
 
-- Implement and test a controlled SR
+<!-- - Implement and test a controlled SR -->
 
-  ![Controlled SR Latch](pics/controlled_sr_latch.png)
+<!--   ![Controlled SR Latch](pics/controlled_sr_latch.png) -->
 
 - Implement and test a D-latch using nand gate SR latch
 
-  ![D-Latch](pics/D-latch.png)
+  <img src="pics/D_latch.png" alt="D Latch" width="400"/>
+  <!-- ![D-Latch](pics/D-latch.png) -->
 
 - Implement and test a D-type master-slave Flip-flops using two D-latches
 
-  ![Master-slave D-Flipflop](pics/D_FF_master_slave.png)
+  <img src="pics/D_FF_master_slave.png" alt="D FF Master-slave" width="400"/>
+  <!-- ![Master-slave D-Flipflop](pics/D_FF_master_slave.png) -->
 
 - Implement and test a clock generator
 
   ![Oscillator signal](pics/oscillator.png)
 
-- Implement and test a simple counter
+- Implement and test a N-bit register
 
-  ![Simple Counter](pics/simple-counter.png)
+- Implement and test a counter with a register
+
+  ![Simple Counter](pics/counter.png)
