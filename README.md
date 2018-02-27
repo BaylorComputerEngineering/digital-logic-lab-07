@@ -31,7 +31,7 @@
 
 - Implement and test a D-latch using nand gate SR latch
 
-  <img src="pics/D_latch.png" alt="D Latch" width="400"/>
+  <img src="pics/D-latch.png" alt="D Latch" width="400"/>
   <!-- ![D-Latch](pics/D-latch.png) -->
 
 - Implement and test a D-type master-slave Flip-flops using two D-latches
