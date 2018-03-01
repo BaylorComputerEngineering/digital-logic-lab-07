@@ -27,9 +27,9 @@ module REG #(parameter SIZE=4)
 
 endmodule
 ```
-- Describe the functionality of this module. **(1pt)**
-
 - Draw a block diagram of this module in terms of mux and D-flipflop. **(1pt)**
+
+- Describe the functionality of this module. **(1pt)**
 
 - The following code is the test bench of ```REG``` module.
 ```verilog
