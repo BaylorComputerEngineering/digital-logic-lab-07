@@ -13,7 +13,7 @@ Please read the [coding standard](coding_standard.md).
 
 ### 1. The following code constructs a ```REG``` module using a N-bit 2-way mux and N D-flipflops.
 ```verilog
-module REG #(parameter SIZE=8)
+module REG #(parameter SIZE=4)
    (input clk, wr_en,
     input [SIZE-1:0]  in,
     output [SIZE-1:0] out);
@@ -43,7 +43,7 @@ module reg_test;
 
    oscillator clock(clk);
 
-   REG  reg_unit(.clk(clk), .wr_en(wr), .in(data_in), .out(data_out));
+   REG #(.SIZE(N)) reg_unit(.clk(clk), .wr_en(wr), .in(data_in), .out(data_out));
 
    initial
      begin
@@ -65,12 +65,12 @@ endmodule // reg_test
   
   ![](pics/reg_test_behav.png)
 
-- Explain:
-  - Why ```data_out``` changes from ```xx``` to ```00``` at 15ns? (1pt)
-  - Why ```data_out``` changes from ```00``` to ```FF``` at 25ns? (1pt)
-  - Why ```data_out``` maintains ```FF``` value at 35ns? (1pt)
+- Explain: (2pts)
+  - Why ```data_out``` changes from ```xx``` to ```00``` at 15ns?
+  - Why ```data_out``` changes from ```00``` to ```FF``` at 25ns?
+  - Why ```data_out``` maintains ```FF``` value at 35ns?
 
-### 3. Implement and test a N-bit 1-4 demux. (1 pts)
+### 3. Implement and test a N-bit 1-4 demux. (2 pts)
 - Name this simulation set as "demux4\_test"
   ```verilog
   module demux4 #(parameter N=4) 
@@ -89,4 +89,5 @@ endmodule // reg_test
   - ```wr_addr```, ```wr_en``` and ```data_in``` (1pt)
 - Implenent the register file according to the block diagram and test its functions (2pts).
   - Name this simulation set as "regfile\_test"
+  - Name the module as ```regfile```
 
