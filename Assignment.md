@@ -11,7 +11,9 @@ Please read the [coding standard](coding_standard.md).
 - For all the simulations, you should use a oscillator with 10ns period (5ns hi, 5ns lo).
 - Block diagrams can be embedded in this doc.
 
-### 1. The following code constructs a ```REG``` module using a N-bit 2-way mux and N D-flipflops.
+### 1. What is the difference in behavior between latch and flip-flop based on the modules and test cases we have developed in lab? **(1 pt)**
+
+### 2. The following code constructs a ```REG``` module using a N-bit 2-way mux and N D-flipflops.
 ```verilog
 module REG #(parameter SIZE=4)
    (input clk, wr_en,
@@ -24,11 +26,10 @@ module REG #(parameter SIZE=4)
    d_flip_flop d_ff[SIZE-1:0](.clk(clk), .d(reg_in), .q(out));
 
 endmodule
-
 ```
-- Describe the functionality of this module. (1pt)
+- Describe the functionality of this module. **(1pt)**
 
-- Draw a block diagram of this module in terms of mux and D-flipflop. (1pt)
+- Draw a block diagram of this module in terms of mux and D-flipflop. **(1pt)**
 
 - The following code is the test bench of ```REG``` module.
 ```verilog
@@ -65,12 +66,12 @@ endmodule // reg_test
   
   ![](pics/reg_test_behav.png)
 
-- Explain: (2pts)
+- Explain: **(1pts)**
   - Why ```data_out``` changes from ```xx``` to ```00``` at 15ns?
   - Why ```data_out``` changes from ```00``` to ```FF``` at 25ns?
   - Why ```data_out``` maintains ```FF``` value at 35ns?
 
-### 3. Implement and test a N-bit 1-4 demux. (2 pts)
+### 3. Implement and test a N-bit 1-4 demux. **(2 pts)**
 - Name this simulation set as "demux4\_test"
   ```verilog
   module demux4 #(parameter N=4) 
@@ -83,11 +84,14 @@ endmodule // reg_test
 - **Hint**: You can implement it using ```case``` statement.
 
 ### 4. The following block diagram describes an implementation of register file:
+
 ![](pics/regfile.png)
+
 - Explain the functionality of the following ports
-  - ```rd_addr``` and ```data_out``` (1pt)
-  - ```wr_addr```, ```wr_en``` and ```data_in``` (1pt)
-- Implenent the register file according to the block diagram and test its functions (2pts).
+  - ```rd_addr``` and ```data_out``` **(1pt)**
+  - ```wr_addr```, ```wr_en``` and ```data_in``` **(1pt)**
+
+- Implenent the register file according to the block diagram and test its functions **(2pts)**.
   ```verilog
   module regfile4 #(parameter N=8)
      (input          clk, wr_en,
