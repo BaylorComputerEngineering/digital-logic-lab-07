@@ -88,6 +88,15 @@ endmodule // reg_test
   - ```rd_addr``` and ```data_out``` (1pt)
   - ```wr_addr```, ```wr_en``` and ```data_in``` (1pt)
 - Implenent the register file according to the block diagram and test its functions (2pts).
+  ```verilog
+  module regfile4 #(parameter N=8)
+     (input          clk, wr_en,
+      input [1:0]    rd_addr, wr_addr,
+      input [N-1:0]  data_in,
+      output [N-1:0] data_out);
+  
+  endmodule // regfile4
+  ```
   - Name this simulation set as "regfile\_test"
-  - Name the module as ```regfile```
+  - Name the module as ```regfile4```
 
