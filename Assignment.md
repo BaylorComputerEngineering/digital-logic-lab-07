@@ -7,72 +7,24 @@ This goal of this assignment is to help you get more familier with registers and
 Please read the [coding standard](coding_standard.md).
 
 ## Problems
-- Name the project as "Lab07".
 - For all the simulations, you should use a oscillator with 10ns period (5ns hi, 5ns lo).
 - Block diagrams can be embedded in this doc.
 
 ### 1. What is the difference in behavior between latch and flip-flop based on the modules and test cases we have developed in lab? **(1 pt)**
 
-### 2. The following code constructs a ```REG``` module using a N-bit 2-way mux and N D-flipflops.
-```verilog
-module REG #(parameter SIZE=4)
-   (input clk, wr_en,
-    input [SIZE-1:0]  in,
-    output [SIZE-1:0] out);
-
-   wire [SIZE-1:0]    reg_in;
-   mux2 #(.N(SIZE)) m(.in0(out), .in1(in), .sel(wr_en),
-                      .out(reg_in));
-   d_flip_flop d_ff[SIZE-1:0](.clk(clk), .d(reg_in), .q(out));
-
-endmodule
-```
-- Draw a block diagram of this module in terms of mux and D-flipflop. **(1pt)**
-
-- Describe the functionality of this module. **(1pt)**
-
-- The following code is the test bench of ```REG``` module.
-```verilog
-module reg_test;
-   localparam
-     N = 8;
-
-   wire clk;
-   wire [N-1:0] data_out;
-   reg [N-1:0]  data_in;
-   reg          wr;
-
-   oscillator clock(clk);
-
-   REG #(.SIZE(N)) reg_unit(.clk(clk), .wr_en(wr), .in(data_in), .out(data_out));
-
-   initial
-     begin
-        data_in = 0;
-        #15;
-        wr = 1;
-        #10;
-        data_in = 8'hFF;
-        #10;
-        wr = 0;
-        data_in = 8'hAA;
-        #10;
-        $finish;
-     end
-
-endmodule // reg_test
-```
-  The timing diagram looks like this:
-  
-  ![](pics/reg_test_behav.png)
-
-- Explain: **(1pts)**
-  - Why ```data_out``` changes from ```xx``` to ```00``` at 15ns?
-  - Why ```data_out``` changes from ```00``` to ```FF``` at 25ns?
-  - Why ```data_out``` maintains ```FF``` value at 35ns?
+### 2. Using the ```d_flip_flop``` we built in class and a multiplexer to implement a ```REG``` module that when ```en = 1'b1``` it will write and hold on to ```in``` value on positive edge of ```clk```; otherwise it's content will not change. ```out``` will always output it's current value. Start with the **(2 pts)**
+- Name this file as ```reg.v```
+- Start with the following template:
+  ```verilog
+  module REG #(parameter N=8)
+     (input clk, en, in,
+      input out);
+      
+  endmodule
+  ```
 
 ### 3. Implement and test a N-bit 1-4 demux. **(2 pts)**
-- Name this simulation set as "demux4\_test"
+- Name this file as ```demux4.v```
   ```verilog
   module demux4 #(parameter N=4) 
      (input  [N-1:0] in,
@@ -83,15 +35,12 @@ endmodule // reg_test
   ```
 - **Hint**: You can implement it using ```case``` statement.
 
-### 4. The following block diagram describes an implementation of register file:
+### 4. The following block diagram describes an implementation of register file that contains 4 registers (```REG```): **(3 pts)**
 
 ![](pics/regfile.png)
 
-- Explain the functionality of the following ports
-  - ```rd_addr``` and ```data_out``` **(1pt)**
-  - ```wr_addr```, ```wr_en``` and ```data_in``` **(1pt)**
-
-- Implenent the register file according to the block diagram and test its functions **(2pts)**.
+- Name this file as ```regfile4.v```
+- Implenent the register file according to the block diagram and test its functions.
   ```verilog
   module regfile4 #(parameter N=8)
      (input          clk, wr_en,
@@ -101,6 +50,19 @@ endmodule // reg_test
   
   endmodule // regfile4
   ```
-  - Name this simulation set as "regfile\_test"
-  - Name the module as ```regfile4```
+
+
+### 5. Build a register file contains 8 registers using 2 ```regfile4``` from problem 4. **(2 pts)**
+- Name this file as ```regfile8.v```
+- Start with the following template:
+
+  ```verilog
+  module regfile8 #(parameter N=8)
+     (input          clk, wr_en,
+      input [2:0]    rd_addr, wr_addr,
+      input [N-1:0]  data_in,
+      output [N-1:0] data_out);
+  
+  endmodule // regfile8
+  ```
 
