@@ -17,8 +17,9 @@ Please read the [coding standard](coding_standard.md).
 - Start with the following template:
   ```verilog
   module REG #(parameter N=8)
-     (input clk, en, in,
-      input out);
+     (input clk, en, 
+      input [N-1:0] in,
+      input [N-1:0] out);
       
   endmodule
   ```
