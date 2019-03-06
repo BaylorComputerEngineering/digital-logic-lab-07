@@ -60,7 +60,7 @@
     ```
 
 - Note: When testing the module, you should choose a pair of values that can trigger a lot of changes for both a and b.
-  You can derive a pair by using this GCD algorithm backward.
+  You can derive a pair by running this GCD algorithm backward.
 
 ### 2. Modify the the GCD module from problem 1 so that its computing speed can be controlled by a input signal named ```tick``` (2 pts)
 - Recommended change to the IO ports:

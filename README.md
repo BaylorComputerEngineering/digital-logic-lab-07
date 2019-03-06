@@ -77,5 +77,5 @@
   - [Blocking vs non-blocking assignment (page 29)](http://sutherland-hdl.com/pdfs/verilog_2001_ref_guide.pdf#page=29)
   - See also: [always](doc/Always.pdf)
 
-- Implement a much more useful counter
+- Implement a much more useful counter: timed counter
 
