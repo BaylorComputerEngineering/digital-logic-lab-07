@@ -27,7 +27,7 @@
 - [Module Instances](http://sutherland-hdl.com/pdfs/verilog_2001_ref_guide.pdf#page=21)
 - [Primitive Instances](http://sutherland-hdl.com/pdfs/verilog_2001_ref_guide.pdf#page=23)
 - [Vector Bit Select and Part Selects](http://sutherland-hdl.com/pdfs/verilog_2001_ref_guide.pdf#page=20)
-- [Blocking vs non-blocking assignment (page 29)](http://sutherland-hdl.com/pdfs/verilog_2001_ref_guide.pdf#page=29)
+
 - [Procedural Blocks](http://sutherland-hdl.com/pdfs/verilog_2001_ref_guide.pdf#page=27)
   - ['always' Block (page 27)](http://sutherland-hdl.com/pdfs/verilog_2001_ref_guide.pdf#page=27)
 - [Generate Block](http://sutherland-hdl.com/pdfs/verilog_2001_ref_guide.pdf#page=25)
@@ -38,6 +38,9 @@
     - localparam: local constant
 
 ## Topics for this lab
+
+
+### Building a register
 
 - Implement and test a nand gate SR latch
   
@@ -62,21 +65,17 @@
 
   ![Oscillator signal](pics/oscillator.png)
 
-  ```verilog
-  module oscillator #(parameter HI=5, LO=5)
-     (output reg clk);
-
-  always
-    begin
-      clk <= 1'b1; #(HI);
-      clk <= 1'b0; #(LO);
-    end
-
-  endmodule
-  ```
-
 - Implement and test a N-bit register
 
-- Example: Implement and test a counter with a register
+### First Sequential Circuit: Counter
+
+- Implement and test a counter with a register
 
   ![Simple Counter](pics/counter.png)
+
+- Implement counter using behavioral modeling.
+  - [Blocking vs non-blocking assignment (page 29)](http://sutherland-hdl.com/pdfs/verilog_2001_ref_guide.pdf#page=29)
+  - See also: [always](doc/Always.pdf)
+
+- Implement a much more useful counter
+
